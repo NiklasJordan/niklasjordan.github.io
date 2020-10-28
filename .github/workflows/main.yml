@@ -14,3 +14,4 @@ jobs:
         ftp-server: ftp://mueller.uberspace.de/var/www/virtual/niklasjo/www.niklasjordan.com
         ftp-username: niklasjo
         ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./_site/
