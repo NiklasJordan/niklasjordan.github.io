@@ -3,8 +3,6 @@ layout: post
 authorbox: nope
 ---
 
-# Privacy
-
 Version 1.1 of the Privacy policy, as published on 12th October 2020.
 
 My privacy policy is simple (and will stay that way). It describes how I, Niklas Jordan, collect, use, and share information in connection with your use of my websites.
