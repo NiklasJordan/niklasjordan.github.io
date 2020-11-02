@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 ---
 
 # About this site

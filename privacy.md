@@ -1,7 +1,9 @@
 ---
-layout: post
+layout: page
 authorbox: nope
 ---
+
+# Privacy
 
 Version 1.1 of the Privacy policy, as published on 12th October 2020.
 
