@@ -6,7 +6,7 @@ authorbox: nope
 # I use technology to understand a changing planet.
 
 Hej – I am Niklas 👋,\
-full-time technology advocate – part-time Earth science student!
+full-time technology advocate – part-time Earth science student.
 
 I am passionate about natural hazards, Earth observation, climate, data science, open data, low-cost technology, human rights & tech ethics. Yep, I have lots of interests. *Oh wait*, one more thing to know: I love rough weather!
 
