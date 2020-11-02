@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+<p>
+
+  <p><small>
+    <a href="{{ page.url | prepend: site.baseurl }}">
+      🔗 Permalink
+    </a>&nbsp;|&nbsp;
+    {{ page.date | date: '%D' }} | Source: {{ page.source }}</small>
+  </p>
+
+  <p>{{ page.content | markdownify }}</p>
+  
+  <p><a href="{{ page.link }}">Read '{{ page.title }}' on the {{ page.source }} site.</a></p>
+  </p>
+  </p>

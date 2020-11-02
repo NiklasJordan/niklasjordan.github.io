@@ -19,7 +19,7 @@ I am passionate about natural hazards, Earth observation, climate, data science,
 
 [Get to know more about me.](/about)
 
-## Last articles
+## Latest articles
 {% if site.posts.size > 0 %}
   <ul>
     {% for post in site.posts limit:5 %}
