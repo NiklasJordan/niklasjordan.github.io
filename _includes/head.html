@@ -5,11 +5,12 @@
 
   <title>
     {% if page.title %}
-      {{ page.title }}
+      {{ page.title }} | {{ site.title }}
     {% else %}
       {{ site.title }}
     {% endif %}
   </title>
+  <meta name="description" content="{{ site.description }}">
 
   <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Niklas Jordan" />
 

@@ -63,3 +63,5 @@ You may be surprised at how many websites offer an RSS service, even if they don
 
 - [Firefox RSS add-ons](https://addons.mozilla.org/en-US/firefox/search/?platform=mac&q=rss)
 - [Chrome RSS extensions](https://chrome.google.com/webstore/search/rss)
+
+By the way, I copied this great page from [Leon Paternoster](https://www.thisdaysportion.com/about/what-is-rss/) and adapted it for me. Thanks, Leon! ❤️
