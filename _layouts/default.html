@@ -7,6 +7,7 @@
         {{ content }}
 
         {% if page.authorbox == "nope" %}
+            <div style="display: none;">{% include author.html %}</div>
         {% else %}
             {% include author.html %}
         {% endif %}
