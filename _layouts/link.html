@@ -8,7 +8,7 @@ layout: default
     <a href="{{ page.url | prepend: site.baseurl }}">
       🔗 Permalink
     </a>&nbsp;|&nbsp;
-    {{ page.date | date: '%D' }} | Source: {{ page.source }}</small>
+    {{ page.date | date: '%d/%m/%Y' }} | Source: {{ page.source }}</small>
   </p>
 
   <p class="e-content">{{ page.content | markdownify }}</p>

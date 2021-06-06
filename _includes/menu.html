@@ -1,9 +1,21 @@
-<p class="site-title"><strong>Niklas Jordan</strong></p>
-<ul class="nav">
-    <li><a class="active" href="/">Start here</a></li>
-    <li><a href="/about.html">About me</a></li>
-    <li><a href="/speaking.html">Speaking</a></li>
-    <li><a href="/blog.html">Blog</a></li>
-    <li><a href="/links.html">Links</a></li>
-    <li><a href="/newsletter.html">Newsletter</a></li>
-</ul>
+<header>
+    <nav>
+
+        {% unless page.layout == 'front' %}
+    {% for link in site.navigation %}
+      {% assign current = nil %}
+      {% if page.url == link.url or page.layout == link.layout %}
+        {% assign current = 'current' %}
+      {% endif %}
+
+      <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
+    {% endfor %}
+{% endunless %}
+        <!-- <a class="active" href="/">Start here</a>
+        <a href="/about.html">About me</a>
+        <a href="/speaking.html">Speaking</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/links.html">Links</a>
+        <a href="/newsletter.html">Newsletter</a>-->
+    </nav>
+</header>

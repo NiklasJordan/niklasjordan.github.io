@@ -13,8 +13,20 @@ plugins:
 collections:
   links:
     output: true
+  speaking:
+    output: false
 
 feed:
   collections:
     links:
       path: "/links.xml"
+
+navigation:
+  - text: Start here
+    url: /
+  - text: About me
+    url: /about.html
+  - text: Publications & Talks
+    url: /speaking.html
+  - text: Blog
+    url: /blog.html

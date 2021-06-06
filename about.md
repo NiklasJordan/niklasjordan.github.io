@@ -47,6 +47,4 @@ I believe that technology can have a positive impact on the world. Tech can empo
 ## Lastly...
 When I’m not making the things above, you’ll find me cycling or exploring the nature.
 
-{% include profiles.html %}
-
 Have a question? [Get in touch.](mailto:hello@niklasjordan.com)

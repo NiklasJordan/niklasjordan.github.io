@@ -1,0 +1,42 @@
+<h2>Upcoming events</h2>
+
+{% assign eventPost = site.speaking | sort: 'date' %}
+{% assign eventsNumber = 100 %}
+{% assign printedEvents = 0 %}
+{% for event in eventPost %}
+<p>
+    {% assign curDate = site.time | date: '%Y-%m-%d' %}
+    {% assign postStartDate = event.date | date: '%Y-%m-%d' %}
+    {% if (postStartDate >= curDate) %}
+        {% assign printedEvents = printedEvents | plus: 1 %}
+            <small>{{ event.date | date: '%d/%m/%Y' }} | {{ event.state }} | {{ event.location }}</small><br /> 
+            <strong>{{ event.title }}</strong><br />Talk: {{ event.talk }}
+            {% if event.details == is_empty AND event.details == is_empty AND event.video == is_empty %}
+            {% else if %}
+                ({% if event.details != is_empty %}<a href="{{ event.details != }}">Details</a>{% endif %}{% if event.slides != is_blank %} | <a href="{{ event.slides }}">Slides</a> | {% endif %}{% if event.video != is_empty %} | <a href="{{ event.video }}">Video</a>{% endif %})
+            {% endif %}
+    {% endif %}
+</p>
+{% endfor %}
+
+<h2>Past events</h2>
+{% assign eventPost = site.speaking | sort: 'date' %}
+{% assign eventsNumber = 100 %}
+{% assign printedEvents = 0 %}
+{% for event in eventPost %}
+<p>
+    {% assign curDate = site.time | date: '%Y-%m-%d' %}
+    {% assign postStartDate = event.date | date: '%Y-%m-%d' %}
+    {% if (postStartDate < curDate) and (printedEvents < eventsNumber) %}
+        {% assign printedEvents = printedEvents | plus: 1 %}
+            <small>{{ event.date | date: '%d/%m/%Y' }} | {{ event.state }} | {{ event.location }}</small><br /> 
+            {{ event.title }}: {{ event.talk }}
+            {% if event.details == is_empty AND event.details == is_empty AND event.video == is_empty %}
+            {% else if %}
+                ({% if event.details != is_empty %}<a href="{{ event.details != }}">Details</a> | {% endif %}
+                {% if event.slides != is_blank %}<a href="{{ event.slides }}">Slides</a> | {% endif %}
+                {% if event.video != is_empty %}<a href="{{ event.video }}">Video</a>{% endif %})
+            {% endif %}
+    {% endif %}
+</p>
+{% endfor %}

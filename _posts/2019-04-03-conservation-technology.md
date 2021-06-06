@@ -7,7 +7,7 @@ categories:
 ---
 **Last update: 12.05.2020**
 
-<p style="background-color:#ffd900" class="has-background">
+<p class="highlight-box topo">
   <em>This is not a finished blog <g class="gr_ gr_6 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Grammar multiReplace" id="6" data-gr-id="6">posts</g>, it&#8217;s more or less a growing collection about all stuff around conservation technology.</em>
 </p>
 
