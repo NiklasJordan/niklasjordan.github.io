@@ -5,8 +5,8 @@ baseurl: ""
 url: "https://www.niklasjordan.com"
 
 # Build settings
-theme: no-style-please
-remote_theme: no-style-please
+# theme: no-style-please
+# remote_theme: no-style-please
 plugins:
   - jekyll-feed
 

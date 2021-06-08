@@ -1,12 +1,42 @@
-header nav {
+header nav.menu {
     display: flex;
-    flex-wrap: row wrap;
-    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+header nav.mobileMenu {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    header nav.menu {
+        display: none;
+    }
+
+    header nav.mobileMenu {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    header nav.mobileMenu details {
+        padding: 0;
+        background: none;
+        border: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0;
+        padding: .5rem 0;
+    }
 }
 
 header a {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding: .5rem .5rem;
     text-decoration: none;
     font-size: smaller;
     flex: 1;
@@ -14,6 +44,7 @@ header a {
     text-align: center;
     margin: .5rem;
     border-radius: 3px;
+    flex-basis: max-content;
 }
 
 .current {background: #1d1d1d;}
@@ -22,6 +53,27 @@ header a {
 .highlight-box p {width: 100%;}
 .highlight-box p:first-child {text-transform: uppercase; font-size: 120%;}
 .columns {display: flex; flex-direction: row; gap: 2em;}
+
+@media (max-width: 800px) {
+    .columns {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .columns img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .topo {background:rgba(255, 255, 255, 0.1) url(/assets/topography.svg) repeat;}
 form input[type=email], form input[type=search] {width: 100%; font-size: 1.03rem; padding: 0.5rem;}
 footer {font-size: smaller;}
+
+.tweet {
+    background: #fff;
+    border: 1px #bbb solid;
+    border-radius: 10px;
+    color: #000;
+    margin: 2rem 0;
+}
