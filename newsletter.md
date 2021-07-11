@@ -3,7 +3,9 @@ layout: page
 authorbox: nope
 ---
 
-# Newsletter
+# Get on my list
+
+<p class="subline">People, Planet & Technology</p>
 
 Here’s the deal. I read loads of things about environmental and climate stuff, technology and nerd stuff, about our transforming world and cities and an ethical approach to challenge all these things.
 

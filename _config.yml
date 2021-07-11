@@ -26,7 +26,9 @@ navigation:
     url: /
   - text: About me
     url: /about.html
-  - text: Publications & Talks
-    url: /speaking.html
+  - text: Elsewhere
+    url: /elsewhere.html
   - text: Blog
     url: /blog.html
+  - text: Newsletter
+    url: /newsletter.html

@@ -12,10 +12,16 @@
             {% include author.html %}
         {% endif %}
 
-        {% include profiles.html %}
+        {% if page.profiles == "nope" %}
+            <div style="display: none;">{% include profiles.html %}</div>
+        {% else %}
+            {% include profiles.html %}
+        {% endif %}
         
         {%- include footer.html -%}
 
         {%- include cabin.html -%}
+
+        <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
     </body>
 </html>

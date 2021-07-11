@@ -3,10 +3,15 @@ layout: home
 authorbox: nope
 ---
 
-# I use technology to understand a changing planet.
+# Hej – I am Niklas 👋
+<p class="subline">Technology advocate by day,<br />Earth science student by night.</p>
 
-Hej – I am Niklas 👋,\
-full-time technology advocate – part-time Earth science student.
+<figure role="group" class="showcase">
+  <img src="/images/EDITED_2021-06-21-00 00_2021-06-21-23 59_Sentinel-2_L2A_Wildfires.jpg" alt="This picture shows a satellite image of Arizona in the United States. Most parts of the image are light to dark brownish orange. In the middle of the image two red wild fires can be seen and large smoke trails drift across the landscape." class="showcase full" />
+  <figcaption>
+    I use Earth observation to understand changes in environmental or humanitarian issues. Here you see how large fires are raging in Arizona, USA (June 21, 2021; modified Copernicus Sentinel-2 data/Sentinel Hub).
+  </figcaption>
+</figure>
 
 I am passionate about natural hazards, Earth observation, climate, data science, open data, low-cost technology, human rights & tech ethics. Yep, I have lots of interests. *Oh wait*, one more thing to know: I love rough weather!
 
@@ -19,6 +24,7 @@ I am passionate about natural hazards, Earth observation, climate, data science,
 
 [Get to know more about me.](/about)
 
+<!--
 ## Latest articles
 {% if site.posts.size > 0 %}
   <ul>
@@ -29,5 +35,5 @@ I am passionate about natural hazards, Earth observation, climate, data science,
     {% endfor %}
   </ul>
 {% endif %}
-
+-->
 {% include newsletter.html %}
