@@ -22,7 +22,7 @@ With [OpenSpaceData →](https://www.openspacedata.org) I've founded an organisa
     <p>👈 Aaaand, that's me!</p>
 </div>
 
-Through my work, I have given various interviews or been featured in media stories. [You can see a selection here.](/media.html)
+Through my work, I have given various interviews or been featured in media stories. [You can see a selection here.](/elsewhere.html)
 
 ## In ❤️ with science & technology
 For the past few years, I have been studying Earth science at The Open University alongside my job. I am particularly interested in natural hazards, how they arise, what risks they pose and how we can protect ourselves from them. But I also get excited about climate topics, oceanography & hydrology or urban planning.
@@ -47,7 +47,7 @@ You get the most out of me, in a job where I'm a kind of a connector: I have a d
 - Love to learn new stuff
 - And, for sure, a huuuge passion for our planet ❤️ 👉 🌍
 
-**Now, a pretty important information**: I would absolutely love to work in domains of satellite imagery providers or EO analysis platforms. So if you work at Planet, Up42, Sinergise or even better at the ESA, by all means, drop the coffee and text me. Now.
+**Now, a pretty important information**: I would absolutely love to work in domains of satellite imagery providers or EO analysis platforms. So if you work at Planet, Up42, Sinergise or at the ESA, by all means, drop the coffee and text me. Now.
 
 ### Projects
 Throughout the years, I have worked with many great organizations. A selection of them are these: German Center for International Peace Operations (ZIF), German Federal Ministry of Education and Research, German Aerospace Center, Greenpeace Germany and Goethe-Institut.
