@@ -7,13 +7,13 @@
         {{ content }}
 
         {% if page.authorbox == "nope" %}
-            <div style="display: none;">{% include author.html %}</div>
+            
         {% else %}
             {% include author.html %}
         {% endif %}
 
         {% if page.profiles == "nope" %}
-            <div style="display: none;"></div>
+        
         {% else %}
             {% include profiles.html %}
         {% endif %}
