@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Create icon element
             const icon = document.createElement('i');
-            icon.className = 'fab fa-circle-check';
+            icon.className = 'fa-solid fa-circle-check';
             icon.style.color = config.highlight_color;
             icon.style.marginRight = '10px';
             
