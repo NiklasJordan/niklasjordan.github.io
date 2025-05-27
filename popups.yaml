@@ -1,0 +1,17 @@
+popups:
+  floodready:
+    logo: "media/floodready.svg"
+    highlight_color: "#0047FF"
+    title: "Coming Soon"
+    description: "FloodReady.dk is designed to help property owners, renters and home buyers in Denmark navigate the challenges of flood risk through clear, actionable information."
+    bullet_points:
+      - "Access to official flood alerts enriched with detailed weather data, expected impact assessments, and real-time advice to protect your home"
+      - "User-friendly tools to evaluate your property's specific flood risk based on location and characteristics"
+      - "Concrete measures to safeguard your property against various flood types, from storm surges to heavy rainfall"
+      - "Easy-to-understand articles about flood types and consequeces, step-by-step preparation guides, and information on Danish regulations, insurance options, and public support"
+    button_text: "Follow me on LinkedIn to be notified when we go live!"
+    button_url: "https://www.linkedin.com/in/niklasjordan/"
+    background_video: "media/floodready.mp4"
+    #overlay_color: "#0047FF"
+    overlay_color: "#000"
+    overlay_opacity: 0.5

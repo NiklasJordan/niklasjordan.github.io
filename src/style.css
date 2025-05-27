@@ -28,7 +28,7 @@ body {
     margin: 10px auto; /*auto - center the linktree*/
 }
 
-img {
+img.profilepic {
     width: 130px;
     height: 130px;
     display: block;
@@ -53,7 +53,7 @@ img {
 }
 
 #risk-banner {
-	background: url(images/background.png);
+	background: url(../media/background.png);
 	color: white;
 	display: block;
     margin: 10px;
