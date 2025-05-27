@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             icon.className = 'fa-solid fa-circle-check';
             icon.style.color = config.highlight_color;
             icon.style.marginRight = '10px';
+            icon.style.marginTop = '2px';
             
             // Append icon and text to list item
             listItem.appendChild(icon);
