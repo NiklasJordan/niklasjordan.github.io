@@ -11,7 +11,7 @@ popups:
       - "Easy-to-understand articles about flood types and consequeces, step-by-step preparation guides, and information on Danish regulations, insurance options, and public support"
     button_text: "Follow me on LinkedIn to be notified when we go live!"
     button_url: "https://www.linkedin.com/in/niklasjordan/"
-    background_video: "media/floodready.mp4"
+    background_video: "media/floodready-demo.mp4"
     #overlay_color: "#0047FF"
     overlay_color: "#000"
     overlay_opacity: 0.5
