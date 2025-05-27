@@ -206,19 +206,33 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(popupOverlay);
     }
 
-    // Main function to check source parameter and display appropriate popup
-    async function initPopup() {
-        const sourceParam = getURLParameter('source');
-        
-        if (!sourceParam) return;
-        
+    // Function to load and display a specific popup by name
+    async function showPopupByName(popupName) {
         const popupConfigs = await fetchPopupConfig();
-        if (!popupConfigs || !popupConfigs.popups || !popupConfigs.popups[sourceParam]) {
-            console.log('No popup configuration found for source:', sourceParam);
+        if (!popupConfigs || !popupConfigs.popups || !popupConfigs.popups[popupName]) {
+            console.log('No popup configuration found for source:', popupName);
             return;
         }
         
-        createPopup(popupConfigs.popups[sourceParam]);
+        createPopup(popupConfigs.popups[popupName]);
+    }
+    
+    // Main function to check source parameter and display appropriate popup
+    async function initPopup() {
+        // Check for URL parameter
+        const sourceParam = getURLParameter('source');
+        if (sourceParam) {
+            await showPopupByName(sourceParam);
+        }
+        
+        // Set up click handler for the floodready button
+        const floodreadyButton = document.getElementById('floodready-button');
+        if (floodreadyButton) {
+            floodreadyButton.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                showPopupByName('floodready');
+            });
+        }
     }
 
     // Initialize popup system
