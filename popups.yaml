@@ -13,5 +13,5 @@ popups:
     button_url: "https://www.linkedin.com/in/niklasjordan/"
     background_video: "media/floodready-demo.mp4"
     #overlay_color: "#0047FF"
-    overlay_color: "#000"
+    overlay_color: "#0047FF"
     overlay_opacity: 0.5
