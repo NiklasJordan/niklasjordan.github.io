@@ -1,129 +1,111 @@
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
 
 :root {
-    --textColor: black;
-    --textColorLight: white;
-    --font: 'Karla', sans-serif;
+  --textColor: black;
+  --textColorLight: white;
+  --font: "Karla", sans-serif;
 }
 
 html {
-    /*FONT:*/   
-    font-family: var(--font);
-    color: var(--textColor);
-    font-size: 18px; 
-    font-weight: 400;
+  /*FONT:*/
+  font-family: var(--font);
+  color: var(--textColor);
+  font-size: 18px;
+  font-weight: 400;
 
-    /*BACKGROUND:*/
-    background: rgba(195, 53, 77, 0.1);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  /*BACKGROUND:*/
+  background: rgba(195, 53, 77, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 body {
-    margin: 10px auto; /*auto - center the linktree*/
+  margin: 10px auto; /*auto - center the linktree*/
 }
 
 img.profilepic {
-    width: 130px;
-    height: 130px;
-    display: block;
-    margin: 20px auto;
-    border-radius: 50%; /*round image*/
+  width: 130px;
+  height: 130px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 50%; /*round image*/
 }
 
 #userName {
-    font-weight: 700; /*bold*/
+  font-weight: 700; /*bold*/
 }
 
 #description {
-    margin: 20px auto;
-    padding: 10px 0; 
-    max-width: 450px;
+  margin: 20px auto;
+  padding: 10px 0;
+  max-width: 450px;
 }
 
 .subline {
-	text-transform: uppercase;
-	font-weight: bold;
-	margin-top: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 30px;
 }
 
 #risk-banner {
-	background: url(../media/background.png);
-	color: white;
-	display: block;
-    margin: 10px;
-    padding: 15px 10px; 
-    border-radius: 5px;
-    max-width: 500px;
+  background: url(../media/background.png);
+  color: white;
+  display: block;
+  margin: 10px;
+  padding: 15px 10px;
+  border-radius: 5px;
+  max-width: 500px;
+  text-align: center;
 }
 
 #risk-banner > * {
-	margin: 10px 0;
+  margin: 10px 0;
 }
 
-#risk-banner form {
-	width: 100%;
-	display: block;
-	margin: 20px 0 10px 0;
-}
-
-#risk-banner input {
-	border:none;
-	padding: 15px 10px;
-	font-size: 16px; 
-	width: 75%;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px;
-	font-family: var(--font);
-}
-
-#risk-banner button {
-	border:none;
-	padding: 15px 10px;
-	font-size: 16px; 
-	width: 15%;
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	font-family: var(--font);
-	background: var(--textColor);
-	color: white;
+#risk-banner a.subscribe {
+  display: block;
+  margin: 20px auto 10px auto;
+  border: none;
+  padding: 15px 10px;
+  font-size: 16px;
+  width: 90%;
+  border-radius: 5px;
+  font-family: var(--font);
+  background: var(--textColor);
+  color: white;
 }
 
 .shadow {
-	box-shadow: 5px 5px 0px 0px rgba(195, 53, 77, 0.1);
+  box-shadow: 5px 5px 0px 0px rgba(195, 53, 77, 0.1);
 }
 
 main {
-    width: auto;
-    max-width: 500px;
-    margin: 15px auto;
+  width: auto;
+  max-width: 500px;
+  margin: 15px auto;
 }
 
 /*LINKS*/
 a {
-    /*LINKS TEXT*/
-    color: var(--textColor);
-    text-decoration: none;
-    text-align: center;
+  /*LINKS TEXT*/
+  color: var(--textColor);
+  text-decoration: none;
+  text-align: center;
 
-    /*LINKS BORDER:*/
-    border: 2px solid var(--textColor);
-    border-radius: 5px;
+  /*LINKS BORDER:*/
+  border: 2px solid var(--textColor);
+  border-radius: 5px;
 
-    display: block; /*each link takes a whole line*/
-    margin: 10px;
-    padding: 10px; 
-    box-shadow: 5px 5px 0px 0px rgba(195, 53, 77, 0.1);
+  display: block; /*each link takes a whole line*/
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 0px 0px rgba(195, 53, 77, 0.1);
 }
 /*
 a#floodready-button {

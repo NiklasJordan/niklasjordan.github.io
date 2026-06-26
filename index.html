@@ -1,73 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hej – I'm Niklas 👋</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/popup.css" />
+    <script
+      src="https://kit.fontawesome.com/a24a780288.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/popup.js" defer></script>
+    <link rel="icon" href="media/icon.png" type="image/x-icon" />
+    <link rel="me" href="https://sifa.id/p/niklasjordan.com" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hej – I'm Niklas 👋</title>
-  <link rel="stylesheet" href="src/style.css">
-  <link rel="stylesheet" href="src/popup.css">
-  <script src="https://kit.fontawesome.com/a24a780288.js" crossorigin="anonymous"></script>
-  <script src="src/popup.js" defer></script>
-  <link rel="icon" href="media/icon.png" type="image/x-icon"/>
-  <link rel="me" href="https://sifa.id/p/niklasjordan.com">
-</head>
-	
-<body>
-  <main>
-    <img class="shadow profilepic" src="media/niklasjordan.png" alt="Portrait of Niklas Jordan">
+  <body>
+    <main>
+      <img
+        class="shadow profilepic"
+        src="media/niklasjordan.png"
+        alt="Portrait of Niklas Jordan"
+      />
 
-    <p id="userName">Hej - I'm Niklas 👋</p>
-    <p id="description">I'm a Geologist working on safer communities — specialising in flood risk management, physical climate risks, and natural hazards — using satellite data, GIS, and hydraulic modelling to make risk information accessible and actionable.</p>
-    
-    <div id="risk-banner" class="shadow">
-    	<p><i>risk & haz</i> is your monthly briefing on the latest developments and explorations on decoding climate risks and natural hazards with Earth Observation techniques, designed for practitioners.</p>
-    	<form
-		  action="https://buttondown.email/api/emails/embed-subscribe/riskandhaz"
-		  method="post"
-		  target="popupwindow"
-		  onsubmit="window.open('https://buttondown.email/riskandhaz', 'popupwindow')"
-		  class="embeddable-buttondown-form">
-		  <input type="email" name="email" id="bd-email" placeholder="Enter your email"/>
-		  <button type="submit" value="Subscribe" data-cabin-event="Newsletter Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
-		</form>
-    </div>
+      <p id="userName">Hej - I'm Niklas 👋</p>
+      <p id="description">
+        I'm a Geologist working on safer communities — specialising in flood
+        risk management, physical climate risks, and natural hazards — using
+        satellite data, GIS, and hydraulic modelling to make risk information
+        accessible and actionable.
+      </p>
 
-    <p class="subline">Projects</p>
+      <div id="risk-banner" class="shadow">
+        <p>
+          <i>risk & haz</i> is where I write about floods, climate hazards, and
+          the geospatial data behind them — decoding the technical and
+          translating what it means for the communities in their path.
+        </p>
+        <a href="https://risk-and-haz.offprint.app/subscribe" class="subscribe"
+          ><i class="fa-solid fa-paper-plane"></i> Subscribe here</a
+        >
+      </div>
 
-    <a href="#" id="floodready-button" data-cabin-event="FloodReady.dk Btn">
-      <i class="fa-solid fa-house-flood-water">&nbsp;</i> FloodReady Denmark
-    </a>
+      <p class="subline">Projects</p>
 
-    <a href="https://meteoalarm.readthedocs.io/en/latest/" target="_blank" data-cabin-event="MeteoAlarm lib">
-      <i class="fa-solid fa-cloud-showers-heavy">&nbsp;</i> MeteoAlarm Python library
-    </a>
-    
-    <p class="subline">Follow me</p>
-    <a href="https://www.linkedin.com/in/niklasjordan/" target="_blank" data-cabin-event="LinkedIn">
-      <i class="fab fa-linkedin">&nbsp;</i> LinkedIn
-    </a>
-    <a href="https://bsky.app/profile/niklasjordan.com" target="_blank" data-cabin-event="Bluesky">
-      <i class="fab fa-bluesky">&nbsp;</i> Bluesky
-    </a>
-    <a href="https://github.com/NiklasJordan" target="_blank" data-cabin-event="GitHub">
-      <i class="fab fa-github">&nbsp;</i> GitHub
-    </a>
-    <a href="https://orcid.org/0000-0002-0508-6769" target="_blank" data-cabin-event="ORCID">
-      <i class="fab fa-orcid">&nbsp;</i> ORCID
-    </a>
-    
-    <p class="subline">Contact</p>
-    <a href="mailto:hello@niklasjordan.com" target="_blank" data-cabin-event="E-Mail">
-      <i class="fa-solid fa-envelope">&nbsp;</i> hello@niklasjordan.com
-    </a>
-	<a href="https://signal.me/#eu/Ef92pDEGA3_74-tmhc2TN2i9W0HVa3c_eyc_u77zyPuQ5JDk1LBNWYE-2ORTeZrR" target="_blank" data-cabin-event="ORCID">
-      <i class="fa-brands fa-signal-messenger">&nbsp;</i> Signal
-    </a>
-  </main>
-  
+      <a href="#" id="floodready-button" data-cabin-event="FloodReady.dk Btn">
+        <i class="fa-solid fa-house-flood-water">&nbsp;</i> FloodReady Denmark
+      </a>
 
-  <script async src="https://scripts.withcabin.com/hello.js"></script>
+      <a
+        href="https://meteoalarm.readthedocs.io/en/latest/"
+        target="_blank"
+        data-cabin-event="MeteoAlarm lib"
+      >
+        <i class="fa-solid fa-cloud-showers-heavy">&nbsp;</i> MeteoAlarm Python
+        library
+      </a>
 
-</body>
+      <p class="subline">Follow me</p>
+      <a
+        href="https://www.linkedin.com/in/niklasjordan/"
+        target="_blank"
+        data-cabin-event="LinkedIn"
+      >
+        <i class="fab fa-linkedin">&nbsp;</i> LinkedIn
+      </a>
+      <a
+        href="https://bsky.app/profile/niklasjordan.com"
+        target="_blank"
+        data-cabin-event="Bluesky"
+      >
+        <i class="fab fa-bluesky">&nbsp;</i> Bluesky
+      </a>
+      <a
+        href="https://github.com/NiklasJordan"
+        target="_blank"
+        data-cabin-event="GitHub"
+      >
+        <i class="fab fa-github">&nbsp;</i> GitHub
+      </a>
+      <a
+        href="https://orcid.org/0000-0002-0508-6769"
+        target="_blank"
+        data-cabin-event="ORCID"
+      >
+        <i class="fab fa-orcid">&nbsp;</i> ORCID
+      </a>
+
+      <p class="subline">Contact</p>
+      <a
+        href="mailto:hello@niklasjordan.com"
+        target="_blank"
+        data-cabin-event="E-Mail"
+      >
+        <i class="fa-solid fa-envelope">&nbsp;</i> hello@niklasjordan.com
+      </a>
+      <a
+        href="https://signal.me/#eu/Ef92pDEGA3_74-tmhc2TN2i9W0HVa3c_eyc_u77zyPuQ5JDk1LBNWYE-2ORTeZrR"
+        target="_blank"
+        data-cabin-event="ORCID"
+      >
+        <i class="fa-brands fa-signal-messenger">&nbsp;</i> Signal
+      </a>
+    </main>
+
+    <script async src="https://scripts.withcabin.com/hello.js"></script>
+  </body>
 </html>
