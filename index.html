@@ -1,108 +1,334 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hej – I'm Niklas 👋</title>
-    <link rel="stylesheet" href="src/style.css" />
-    <link rel="stylesheet" href="src/popup.css" />
-    <script
-      src="https://kit.fontawesome.com/a24a780288.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="src/popup.js" defer></script>
-    <link rel="icon" href="media/icon.png" type="image/x-icon" />
+    <meta
+      name="description"
+      content="Niklas Jordan, geologist working on flood risk management, physical climate risks and natural hazards. Founder of geofare."
+    />
+    <meta name="theme-color" content="#fcf2eb" />
+    <link
+      rel="preload"
+      href="media/figtree-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="icon" href="media/icon.png" type="image/png" />
     <link rel="me" href="https://sifa.id/p/niklasjordan.com" />
+    <link rel="stylesheet" href="src/style.css" />
+    <style>
+      /* Heat shimmer. Kept in the page because it points at the #heat-haze
+         filter defined in this file, which some browsers can't find from an
+         external stylesheet. */
+      @media (prefers-reduced-motion: no-preference) {
+        body:has([data-hazard="heat"]:is(:hover, :focus-visible)) main {
+          filter: url(#heat-haze);
+        }
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Full-page weather for the hazard words in About me; decorative only -->
+    <div class="weather" aria-hidden="true">
+      <div class="weather__flood">
+        <div class="weather__pour"></div>
+        <div class="weather__pool"><div class="weather__splash"></div></div>
+      </div>
+      <div class="weather__storm"></div>
+      <div class="weather__heat"></div>
+      <svg width="0" height="0" focusable="false">
+        <filter id="heat-haze" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.006 0.035" numOctaves="1" seed="3" result="noise">
+            <animate
+              attributeName="baseFrequency"
+              dur="9s"
+              values="0.006 0.035; 0.007 0.042; 0.006 0.035"
+              repeatCount="indefinite"
+            />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" />
+        </filter>
+      </svg>
+    </div>
+
     <main>
-      <img
-        class="shadow profilepic"
-        src="media/niklasjordan.png"
-        alt="Portrait of Niklas Jordan"
-      />
-
-      <p id="userName">Hej - I'm Niklas 👋</p>
-      <p id="description">
-        I'm a Geologist working on safer communities — specialising in flood
-        risk management, physical climate risks, and natural hazards — using
-        satellite data, GIS, and hydraulic modelling to make risk information
-        accessible and actionable.
-      </p>
-
-      <div id="risk-banner" class="shadow">
-        <p>
-          <i>risk & haz</i> is where I write about floods, climate hazards, and
-          the geospatial data behind them — decoding the technical and
-          translating what it means for the communities in their path.
+      <div class="content">
+      <div class="intro">
+        <div class="intro__picture">
+          <img
+            src="media/niklasjordan-geofare.webp"
+            width="640"
+            height="861"
+            alt="Niklas Jordan, smiling, in a cap and round glasses"
+          />
+        </div>
+        <h1>Hej – I'm Niklas <span class="wave">👋</span></h1>
+        <p class="lead">
+          I’m a Geologist working on safer communities. I analyse natural hazards and physical climate risks, from floods to storms, and communicate them so people can act.
         </p>
-        <a href="https://risk-and-haz.offprint.app/subscribe" class="subscribe"
-          >Subscribe here <i class="fa-solid fa-paper-plane">&nbsp;</i></a
-        >
       </div>
 
-      <p class="subline">Projects</p>
+      <div class="card card--geofare">
+        <svg class="mark" viewBox="0 0 228 228" aria-hidden="true">
+          <path d="M0 17.23L0 0L96 0L85.3 10.7C80.76 15.24 76.3 19.66 70.2 22.44C63.73 25.38 57.08 25.64 50.35 23.8C41.2 21.3 33.91 15.59 24.76 13.09C18.03 11.25 11.39 11.51 4.91 14.45C3.15 15.25 1.53 16.19 0 17.23ZM0 40L0.47 39.53C5.01 34.99 9.48 30.56 15.58 27.79C22.05 24.84 28.7 24.58 35.42 26.42C44.58 28.92 51.87 34.64 61.02 37.14C67.75 38.97 74.39 38.71 80.86 35.77C86.96 33 91.43 28.57 95.97 24.03L120 0L176 0L120.86 55.14C116.32 59.68 111.85 64.11 105.75 66.88C99.28 69.82 92.64 70.09 85.91 68.25C76.76 65.75 69.47 60.03 60.31 57.53C53.58 55.69 46.94 55.95 40.47 58.9C34.37 61.67 29.9 66.1 25.36 70.64L0 96L0 40ZM0 120L36.03 83.97C40.57 79.43 45.04 75 51.14 72.23C57.61 69.29 64.25 69.03 70.98 70.86C80.13 73.36 87.42 79.08 96.58 81.58C103.3 83.42 109.95 83.16 116.42 80.21C122.52 77.44 126.99 73.01 131.53 68.47L200 0L228 0L228 28L156.42 99.58C151.88 104.12 147.41 108.55 141.31 111.32C134.84 114.27 128.19 114.53 121.47 112.69C112.31 110.19 105.02 104.48 95.87 101.97C89.14 100.14 82.5 100.4 76.03 103.34C69.93 106.12 65.46 110.54 60.92 115.08L0 176L0 120ZM0 200L71.58 128.42C76.12 123.88 80.59 119.45 86.69 116.68C93.16 113.73 99.81 113.47 106.53 115.31C115.69 117.81 122.98 123.52 132.13 126.03C138.86 127.86 145.5 127.6 151.97 124.66C158.07 121.88 162.54 117.46 167.08 112.92L228 52L228 108L191.97 144.03C187.43 148.57 182.96 153 176.86 155.77C170.39 158.71 163.75 158.97 157.02 157.14C147.87 154.64 140.58 148.92 131.42 146.42C124.7 144.58 118.05 144.84 111.58 147.79C105.48 150.56 101.01 154.99 96.47 159.53L28 228L0 228L0 200ZM52 228L107.14 172.86C111.68 168.32 116.15 163.89 122.25 161.12C128.72 158.18 135.36 157.91 142.09 159.75C151.24 162.25 158.53 167.97 167.69 170.47C174.42 172.31 181.06 172.05 187.53 169.1C193.63 166.33 198.1 161.9 202.64 157.36L228 132L228 188L227.53 188.47C222.99 193.01 218.52 197.44 212.42 200.21C205.95 203.16 199.3 203.42 192.58 201.58C183.42 199.08 176.13 193.36 166.98 190.86C160.25 189.03 153.61 189.29 147.14 192.23C141.04 195 136.57 199.43 132.03 203.97L108 228L52 228ZM228 210.77L228 228L132 228L142.7 217.3C147.24 212.76 151.7 208.34 157.8 205.56C164.27 202.62 170.92 202.36 177.65 204.2C186.8 206.7 194.09 212.41 203.24 214.91C209.97 216.75 216.61 216.49 223.09 213.55C224.85 212.75 226.47 211.81 228 210.77Z"/>
+        </svg>
+        <div>
+          <strong>I'm the founder of geofare.</strong>
+          <p>
+            geofare is my natural hazard and climate risk consultancy. We help
+            communities make good decisions when risks multiply.
+          </p>
+          <a
+            class="button"
+            href="https://www.geofare.dk"
+            target="_blank"
+            rel="noopener"
+            data-cabin-event="geofare.dk"
+            >Visit geofare.dk</a
+          >
+        </div>
+      </div>
 
-      <a href="#" id="floodready-button" data-cabin-event="FloodReady.dk Btn">
-        <i class="fa-solid fa-house-flood-water">&nbsp;</i> FloodReady Denmark
-      </a>
+      <div class="card">
+        <p>
+          <i>risk &amp; haz</i> is where I write about floods, climate hazards,
+          and the geospatial data behind them — decoding the technical and
+          translating what it means for the communities in their path.
+        </p>
+        <a
+          class="button button--primary"
+          href="https://risk-and-haz.offprint.app/subscribe"
+          >Subscribe here
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 2 2 9.5l7.5 3L12.5 20 22 2Zm-4.2 4.2-7.6 5.4-3.4-1.4 11-4Z" />
+          </svg>
+        </a>
+      </div>
 
-      <a
-        href="https://meteoalarm.readthedocs.io/en/latest/"
-        target="_blank"
-        data-cabin-event="MeteoAlarm lib"
-      >
-        <i class="fa-solid fa-cloud-showers-heavy">&nbsp;</i> MeteoAlarm Python
-        library
-      </a>
+      <!-- About me (optional): text in the left column, bullet points in the
+           right. Delete this whole section to leave it out. -->
+      <section class="about">
+        <h2>About me</h2>
+        <div class="about__text">
+          <div class="about__col">
+            <p>
+              I’m a Geologist working on safer communities. I help
+              municipalities, planners and asset owners understand what natural
+              hazards and a changing climate mean for them, and what to do
+              about it.
+            </p>
+            <p>
+              <span class="hazard" data-hazard="flood" tabindex="0">Floods</span>,
+              <span class="hazard" data-hazard="storm" tabindex="0">storms</span>,
+              <span class="hazard" data-hazard="heat" tabindex="0">heat</span>
+              and other hazards look different
+              everywhere, so I combine what I see on site with satellite data,
+              geodata and modelling to build a clear picture of the risk. Then
+              I turn it into information people can act on, because a risk
+              nobody understands is a risk nobody acts on.
+            </p>
+            <p>
+              I’m based in Sønderborg Kommune, Denmark, where I founded geofare.
+            </p>
+          </div>
+          <div class="about__col">
+            <ul>
+              <li>
+                <strong>BSc (Hons) Geology</strong>, The Open University. Dissertation on
+                storm-surge flood risk under global warming in Sønderborg kommune, Denmark.<sup class="fn"><a id="fnref-1" href="#fn-1" aria-label="Footnote 1">1</a></sup></li>
+              <li>
+                <strong>15+ years connecting data and people.</strong> I lead a user support
+                team for EUMETSAT’s satellite data services and have worked as
+                a freelance Earth observation consultant. Started OpenSpaceData and DisasterTech.<sup class="fn"><a id="fnref-2" href="#fn-2" aria-label="Footnote 2">2</a></sup></li>
+              <li>
+                <strong>Qualified Stormwater Manager (QSM)</strong> by EnviroCert, plus
+                certifications in Urban Stormwater Management<sup class="fn"><a id="fnref-3" href="#fn-3" aria-label="Footnote 3">3</a></sup></li>
+              <li>
+                <strong>Member of EnviroCert’s Foundational Certification Committee</strong>,
+                overseeing the QSM, CIHECP and CPIESC certifications<sup class="fn"><a id="fnref-4" href="#fn-4" aria-label="Footnote 4">4</a></sup></li>
+              <li><strong>Expert Panel member</strong>, Design for Emergency Management<sup class="fn"><a id="fnref-5" href="#fn-5" aria-label="Footnote 5">5</a></sup></li>
+              <li><strong>Co-author</strong> of the Greenbook Satellites and Sustainability<sup class="fn"><a id="fnref-6" href="#fn-6" aria-label="Footnote 6">6</a></sup></li>
+              <li>Volunteer in the <strong>Danish emergency service</strong><sup class="fn"><a id="fnref-7" href="#fn-7" aria-label="Footnote 7">7</a></sup></li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-      <p class="subline">Follow me</p>
-      <a
-        href="https://www.linkedin.com/in/niklasjordan/"
-        target="_blank"
-        data-cabin-event="LinkedIn"
-      >
-        <i class="fab fa-linkedin">&nbsp;</i> LinkedIn
-      </a>
-      <a
-        href="https://bsky.app/profile/niklasjordan.com"
-        target="_blank"
-        data-cabin-event="Bluesky"
-      >
-        <i class="fab fa-bluesky">&nbsp;</i> Bluesky
-      </a>
-      <a
-        href="https://github.com/NiklasJordan"
-        target="_blank"
-        data-cabin-event="GitHub"
-      >
-        <i class="fab fa-github">&nbsp;</i> GitHub
-      </a>
-      <a
-        href="https://orcid.org/0000-0002-0508-6769"
-        target="_blank"
-        data-cabin-event="ORCID"
-      >
-        <i class="fab fa-orcid">&nbsp;</i> ORCID
-      </a>
+      <h2>Social links</h2>
+      <ul class="links">
+        <li>
+          <a
+            class="button"
+            href="https://www.linkedin.com/in/niklasjordan/"
+            target="_blank"
+            rel="noopener"
+            data-cabin-event="LinkedIn"
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a
+          >
+        </li>
+        <li>
+          <a
+            class="button"
+            href="https://bsky.app/profile/niklasjordan.com"
+            target="_blank"
+            rel="noopener"
+            data-cabin-event="Bluesky"
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg> Bluesky</a
+          >
+        </li>
+        <li>
+          <a
+            class="button"
+            href="https://github.com/NiklasJordan"
+            target="_blank"
+            rel="noopener"
+            data-cabin-event="GitHub"
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a
+          >
+        </li>
+        <li>
+          <a
+            class="button"
+            href="https://orcid.org/0000-0002-0508-6769"
+            target="_blank"
+            rel="noopener"
+            data-cabin-event="ORCID"
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg> ORCID</a
+          >
+        </li>
+      </ul>
 
-      <p class="subline">Contact</p>
-      <a
-        href="mailto:hello@niklasjordan.com"
-        target="_blank"
-        data-cabin-event="E-Mail"
-      >
-        <i class="fa-solid fa-envelope">&nbsp;</i> hello@niklasjordan.com
-      </a>
-      <a
-        href="https://signal.me/#eu/Ef92pDEGA3_74-tmhc2TN2i9W0HVa3c_eyc_u77zyPuQ5JDk1LBNWYE-2ORTeZrR"
-        target="_blank"
-        data-cabin-event="ORCID"
-      >
-        <i class="fa-brands fa-signal-messenger">&nbsp;</i> Signal
-      </a>
+      <h2>Contact</h2>
+      <ul class="links">
+        <li>
+          <a
+            class="button"
+            href="mailto:hello@niklasjordan.com"
+            data-cabin-event="E-Mail"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 4h20v16H2V4Zm2 3.2V18h16V7.2l-8 6-8-6ZM5.3 6l6.7 5 6.7-5H5.3Z" />
+            </svg>
+            hello@niklasjordan.com</a
+          >
+        </li>
+        <li>
+          <a
+            class="button"
+            href="https://signal.me/#eu/Ef92pDEGA3_74-tmhc2TN2i9W0HVa3c_eyc_u77zyPuQ5JDk1LBNWYE-2ORTeZrR"
+            target="_blank"
+            rel="noopener"
+            data-cabin-event="Signal"
+            ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.12.35.27 1.09a10.845 10.845 0 0 0-3.015 1.248l-.578-.964A11.955 11.955 0 0 1 9.12.35zm5.76 0-.27 1.09a10.845 10.845 0 0 1 3.015 1.248l.581-.964A11.955 11.955 0 0 0 14.88.35zM1.725 5.797A11.955 11.955 0 0 0 .351 9.119l1.09.27A10.845 10.845 0 0 1 2.69 6.374zm-.6 6.202a10.856 10.856 0 0 1 .122-1.63l-1.112-.168a12.043 12.043 0 0 0 0 3.596l1.112-.169A10.856 10.856 0 0 1 1.125 12zm17.078 10.275-.578-.964a10.845 10.845 0 0 1-3.011 1.247l.27 1.091a11.955 11.955 0 0 0 3.319-1.374zM22.875 12a10.856 10.856 0 0 1-.122 1.63l1.112.168a12.043 12.043 0 0 0 0-3.596l-1.112.169a10.856 10.856 0 0 1 .122 1.63zm.774 2.88-1.09-.27a10.845 10.845 0 0 1-1.248 3.015l.964.581a11.955 11.955 0 0 0 1.374-3.326zm-10.02 7.875a10.952 10.952 0 0 1-3.258 0l-.17 1.112a12.043 12.043 0 0 0 3.597 0zm7.125-4.303a10.914 10.914 0 0 1-2.304 2.302l.668.906a12.019 12.019 0 0 0 2.542-2.535zM18.45 3.245a10.914 10.914 0 0 1 2.304 2.304l.906-.675a12.019 12.019 0 0 0-2.535-2.535zM3.246 5.549A10.914 10.914 0 0 1 5.55 3.245l-.675-.906A12.019 12.019 0 0 0 2.34 4.874zm19.029.248-.964.577a10.845 10.845 0 0 1 1.247 3.011l1.091-.27a11.955 11.955 0 0 0-1.374-3.318zM10.371 1.246a10.952 10.952 0 0 1 3.258 0L13.8.134a12.043 12.043 0 0 0-3.597 0zM3.823 21.957 1.5 22.5l.542-2.323-1.095-.257-.542 2.323a1.125 1.125 0 0 0 1.352 1.352l2.321-.532zm-2.642-3.041 1.095.255.375-1.61a10.828 10.828 0 0 1-1.21-2.952l-1.09.27a11.91 11.91 0 0 0 1.106 2.852zm5.25 2.437-1.61.375.255 1.095 1.185-.275a11.91 11.91 0 0 0 2.851 1.106l.27-1.091a10.828 10.828 0 0 1-2.943-1.217zM12 2.25a9.75 9.75 0 0 0-8.25 14.938l-.938 4 4-.938A9.75 9.75 0 1 0 12 2.25z"/></svg> Signal</a
+          >
+        </li>
+      </ul>
+
+      <!-- Footnotes for the About me bullet points; numbers match the markers there -->
+      <section class="footnotes" aria-label="Footnotes">
+        <ol>
+          <li id="fn-1">
+            Placeholder: note or link for the degree and dissertation.
+            <a class="fn-back" href="#fnref-1" aria-label="Back to text">↩</a>
+          </li>
+          <li id="fn-2">
+            Placeholder: note or link for the data and Earth observation work.
+            <a class="fn-back" href="#fnref-2" aria-label="Back to text">↩</a>
+          </li>
+          <li id="fn-3">
+            Placeholder: note or link for the QSM certification.
+            <a class="fn-back" href="#fnref-3" aria-label="Back to text">↩</a>
+          </li>
+          <li id="fn-4">
+            Placeholder: note or link for the certification committee.
+            <a class="fn-back" href="#fnref-4" aria-label="Back to text">↩</a>
+          </li>
+          <li id="fn-5">
+            Placeholder: note or link for the expert panel.
+            <a class="fn-back" href="#fnref-5" aria-label="Back to text">↩</a>
+          </li>
+          <li id="fn-6">
+            Placeholder: note or link for the Greenbook.
+            <a class="fn-back" href="#fnref-6" aria-label="Back to text">↩</a>
+          </li>
+          <li id="fn-7">
+            Placeholder: note or link for the emergency service.
+            <a class="fn-back" href="#fnref-7" aria-label="Back to text">↩</a>
+          </li>
+        </ol>
+      </section>
+      </div>
     </main>
+
+    <script>
+      // Waving-hand cursor over the headline emoji; both hands wave on click
+      (function () {
+        var hand = document.querySelector(".wave");
+        if (!hand || !window.PointerEvent) return;
+
+        var cursor = document.createElement("span");
+        cursor.className = "wave-cursor";
+        cursor.setAttribute("aria-hidden", "true");
+        cursor.textContent = "👋";
+        document.body.appendChild(cursor);
+        hand.classList.add("has-cursor");
+
+        var root = document.documentElement;
+        var inside = false;
+        var waving = false;
+
+        function follow(e) {
+          if (e.pointerType !== "mouse") return;
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+          cursor.classList.add("is-visible");
+        }
+
+        function release() {
+          // Hand back the normal cursor once the wave is over and the pointer has left
+          if (inside || waving) return;
+          cursor.classList.remove("is-visible");
+          root.classList.remove("wave-cursor-held");
+          document.removeEventListener("pointermove", follow);
+        }
+
+        function wave(el) {
+          el.classList.remove("is-waving");
+          void el.offsetWidth; // restart the animation
+          el.classList.add("is-waving");
+        }
+
+        hand.addEventListener("pointerenter", function (e) {
+          inside = true;
+          follow(e);
+        });
+        hand.addEventListener("pointermove", follow);
+        hand.addEventListener("pointerleave", function () {
+          inside = false;
+          if (waving) {
+            root.classList.add("wave-cursor-held");
+            document.addEventListener("pointermove", follow);
+          }
+          release();
+        });
+        hand.addEventListener("click", function () {
+          wave(hand);
+          wave(cursor);
+          waving = true;
+          clearTimeout(hand.waveTimer);
+          hand.waveTimer = setTimeout(function () {
+            hand.classList.remove("is-waving");
+            cursor.classList.remove("is-waving");
+            waving = false;
+            release();
+          }, 950);
+        });
+      })();
+    </script>
 
     <script async src="https://scripts.withcabin.com/hello.js"></script>
   </body>

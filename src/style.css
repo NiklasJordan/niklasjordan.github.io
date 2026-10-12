@@ -1,116 +1,853 @@
-@import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
+@font-face {
+  font-family: Figtree;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 900;
+  src: url(../media/figtree-latin-wght-normal.woff2) format("woff2");
+}
 
+/* Brand tokens, shared with geofare.dk */
 :root {
-  --textColor: black;
-  --textColorLight: white;
-  --font: "Karla", sans-serif;
+  --bg: #fcf2eb;
+  --accent: #0047ff;
+  --ink: #0b1220;
+  --on-accent: #fcf2eb;
+  --ink-muted: color-mix(in srgb, var(--ink) 78%, var(--bg));
+  --rule-accent: color-mix(in srgb, var(--accent) 35%, var(--bg));
+  --font-sans: "Figtree", system-ui, sans-serif;
+  --step-hero: clamp(1.75rem, 3.6vw, 2.5rem);
+  --step-title: clamp(1.375rem, 2vw, 1.75rem);
+  --step-lead: clamp(1.25rem, 1.6vw, 1.5rem);
+  --step-body: 1.125rem;
+  --gutter: clamp(1.25rem, 5.5vw, 5rem);
+  --content-max: 92.5rem;
+  --measure: 40rem;
+  --radius: 4px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-  /*FONT:*/
-  font-family: var(--font);
-  color: var(--textColor);
-  font-size: 18px;
-  font-weight: 400;
-
-  /*BACKGROUND:*/
-  background: rgba(195, 53, 77, 0.1);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
-  margin: 10px auto; /*auto - center the linktree*/
-}
-
-img.profilepic {
-  width: 130px;
-  height: 130px;
-  display: block;
-  margin: 20px auto;
-  border-radius: 50%; /*round image*/
-}
-
-#userName {
-  font-weight: 700; /*bold*/
-}
-
-#description {
-  margin: 20px auto;
-  padding: 10px 0;
-  max-width: 450px;
-}
-
-.subline {
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-top: 30px;
-}
-
-#risk-banner {
-  background: url(../media/background.png);
-  color: white;
-  display: block;
-  margin: 10px;
-  padding: 15px 10px;
-  border-radius: 5px;
-  max-width: 500px;
-  text-align: center;
-}
-
-#risk-banner > * {
-  margin: 10px 0;
-}
-
-#risk-banner a.subscribe {
-  display: block;
-  margin: 20px auto 10px auto;
-  border: none;
-  padding: 15px 10px;
-  font-size: 16px;
-  width: 90%;
-  border-radius: 5px;
-  font-family: var(--font);
-  background: var(--textColor);
-  color: white;
-}
-
-.shadow {
-  box-shadow: 5px 5px 0px 0px rgba(195, 53, 77, 0.1);
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
-  width: auto;
-  max-width: 500px;
-  margin: 15px auto;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: clamp(2.5rem, 7vw, 5.5rem) var(--gutter) 4rem;
 }
 
-/*LINKS*/
+.content > :not(.about) {
+  max-width: var(--measure);
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-hero);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--step-title);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-block: 3.5rem 1rem;
+}
+
+.wave {
+  display: inline-block;
+  transform-origin: 70% 75%;
+  animation: wave 5s ease-in-out infinite;
+  /* Emoji cursor; the script below swaps it for one that can wave */
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext x='16' y='25' font-size='24' text-anchor='middle'%3E👋%3C/text%3E%3C/svg%3E")
+      16 16,
+    pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.wave.has-cursor {
+  cursor: none;
+}
+
+/* While the cursor hand finishes its wave outside the emoji */
+.wave-cursor-held,
+.wave-cursor-held * {
+  cursor: none !important;
+}
+
+.wave-cursor {
+  position: fixed;
+  z-index: 10;
+  display: none;
+  margin: -0.6em 0 0 -0.5em;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  transform-origin: 70% 75%;
+  pointer-events: none;
+}
+
+.wave-cursor.is-visible {
+  display: block;
+}
+
+@keyframes wave {
+  0%,
+  30%,
+  100% {
+    transform: rotate(0deg);
+  }
+  6%,
+  18% {
+    transform: rotate(12deg);
+  }
+  12%,
+  24% {
+    transform: rotate(-6deg);
+  }
+}
+
+@keyframes wave-once {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  15%,
+  45%,
+  75% {
+    transform: rotate(16deg);
+  }
+  30%,
+  60%,
+  90% {
+    transform: rotate(-8deg);
+  }
+}
+
+/* The cursor hand answers: starts the other way, two wider swings */
+@keyframes wave-back {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20%,
+  60% {
+    transform: rotate(-18deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+p {
+  margin: 0;
+}
+
 a {
-  /*LINKS TEXT*/
-  color: var(--textColor);
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Portrait: the picture has landed on the intro, slightly askew, with the
+   text running over it. Sizes hang off --pic-w, so it keeps its place at
+   every width. */
+.intro {
+  --pic-w: 7.5rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.intro__picture {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: -1.25rem;
+  inset-inline-end: -0.25rem;
+  width: var(--pic-w);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  transform: rotate(4deg);
+}
+
+/* Tight halo in the page colour, hugging the letters where they cross the picture */
+.intro h1,
+.intro .lead {
+  text-shadow:
+    0 0 1px var(--bg),
+    0 0 2px var(--bg),
+    0 0 3px var(--bg),
+    0 0 4px var(--bg)
+}
+
+.intro__picture > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 48rem) {
+  .intro {
+    --pic-w: clamp(8.5rem, 14vw, 12.5rem);
+  }
+
+  /* Hangs off the end of the text */
+  .intro__picture {
+    inset-block-start: -2.25rem;
+    inset-inline-end: calc(var(--pic-w) * -0.6);
+  }
+}
+
+.lead {
+  margin-block-start: 1.75rem;
+  font-size: var(--step-lead);
+  line-height: 1.45;
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 3rem;
+  padding: 0.5rem 1.25rem;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-weight: 500;
+  line-height: 1.2;
   text-decoration: none;
-  text-align: center;
-
-  /*LINKS BORDER:*/
-  border: 2px solid var(--textColor);
-  border-radius: 5px;
-
-  display: block; /*each link takes a whole line*/
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 5px 5px 0px 0px rgba(195, 53, 77, 0.1);
+  transition:
+    background-color 0.12s,
+    border-color 0.12s,
+    color 0.12s;
 }
-/*
-a#floodready-button {
-	background-color: #0047FF;
-    color: var(--textColorLight);
-    border: 2px solid var(--textColor);
+
+.button:hover,
+.button:active {
+  background-color: var(--accent);
+  color: var(--on-accent);
 }
-*/
+
+.button--primary {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.button--primary:hover,
+.button--primary:active {
+  border-color: var(--ink);
+  background-color: var(--ink);
+}
+
+.button svg {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: currentColor;
+}
+
+/* geofare note and risk & haz card */
+.card {
+  margin-block-start: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1.5px solid var(--rule-accent);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.card .button {
+  margin-block-start: 1.25rem;
+}
+
+.card--geofare {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.25rem;
+  margin-block-start: 2.5rem;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.card--geofare .mark {
+  width: 3rem;
+  height: 3rem;
+  fill: currentColor;
+}
+
+.card--geofare strong {
+  display: block;
+  font-size: var(--step-title);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-block-end: 0.5rem;
+}
+
+.card--geofare .button {
+  border-color: var(--on-accent);
+  background: var(--on-accent);
+  color: var(--accent);
+}
+
+.card--geofare .button:hover,
+.card--geofare .button:active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--on-accent);
+}
+
+/* About me: optional. Two columns: the first as wide as the content column,
+   the second 80% of that. They stack where there is no room for both. */
+.about__text {
+  display: grid;
+  gap: 1em 2.5rem;
+  max-width: var(--measure);
+}
+
+.about__col p + p {
+  margin-block-start: 1em;
+}
+
+.about__col ul {
+  margin: 0;
+  padding-inline-start: 1.25em;
+  font-size: 0.9375rem;
+}
+
+.about__col li + li {
+  margin-block-start: 0.5em;
+}
+
+.about__col li::marker {
+  color: var(--accent);
+}
+
+@media (min-width: 75rem) {
+  .about__text {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 5fr);
+    max-width: calc(1.8 * var(--measure) + 2.5rem);
+  }
+}
+
+/* Footnotes: numbered markers on the About me bullets, notes at the page foot */
+.fn {
+  font-size: 0.7em;
+  line-height: 0;
+  margin-inline-start: 0.15em;
+}
+
+.fn a,
+.fn-back {
+  text-decoration: none;
+}
+
+.fn a:hover,
+.fn-back:hover {
+  text-decoration: underline;
+}
+
+.footnotes {
+  margin-block-start: 4rem;
+  padding-block-start: 1.25rem;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+
+.footnotes ol {
+  margin: 0;
+  padding-inline-start: 1.5em;
+}
+
+.footnotes li + li {
+  margin-block-start: 0.4em;
+}
+
+.footnotes li::marker {
+  color: var(--accent);
+}
+
+/* The footnote you jumped to is highlighted briefly */
+.footnotes li:target {
+  color: var(--ink);
+}
+
+/* Link lists */
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.links .button {
+  width: 100%;
+  justify-content: flex-start;
+  background: var(--bg);
+}
+
+.links .button:hover,
+.links .button:active {
+  background: var(--accent);
+}
+
+@media (max-width: 30rem) {
+  .links {
+    grid-template-columns: 1fr;
+  }
+
+  .card--geofare {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+}
+
+/* Hazard words in About me: hovering (or focusing) one plays its weather
+   across the whole page. CSS only; the layers never catch the pointer. */
+.hazard {
+  text-decoration: underline dotted var(--rule-accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+  cursor: default;
+  transition: color 0.2s;
+}
+
+.hazard:is(:hover, :focus-visible) {
+  color: var(--accent);
+}
+
+.weather {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.weather > div {
+  position: absolute;
+}
+
+/* Flood: murky wastewater pours in from the top of the screen and the screen
+   fills up. Everything is drawn in solid colours and made translucent as
+   one piece, so stream, waves and pool never add up to darker patches. */
+.weather__flood {
+  inset: 0;
+  opacity: 0.85;
+}
+
+/* The stream: falls straight down from the top edge. Three layers scroll
+   at different speeds (a body with uneven edges, lighter strands inside
+   it, and loose drips beside it) while the whole column sways and
+   thickens, so it never reads as one uniform bar. */
+.weather__pour {
+  --pour-x: 14%;
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: var(--pour-x);
+  width: 90px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='300'%3E%3Cg fill='none' stroke='%2394845a' stroke-linecap='round'%3E%3Cpath d='M34 12C30 60 40 100 36 150' stroke-width='4'/%3E%3Cpath d='M54 120C58 170 49 220 53 288' stroke-width='3'/%3E%3Cpath d='M44 210C42 235 47 255 45 280' stroke-width='2'/%3E%3Cpath d='M60 20C62 40 58 60 60 84' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E") repeat-y 0 0 / 90px 300px,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='560'%3E%3Cg fill='%236e5f3c'%3E%3Cellipse cx='6' cy='80' rx='2.5' ry='15'/%3E%3Cellipse cx='85' cy='300' rx='3' ry='18'/%3E%3Cellipse cx='4' cy='430' rx='2' ry='10'/%3E%3Cellipse cx='88' cy='130' rx='1.8' ry='9'/%3E%3Cellipse cx='10' cy='250' rx='1.5' ry='7'/%3E%3C/g%3E%3C/svg%3E") repeat-y 0 0 / 90px 560px,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='420'%3E%3Cpath d='M18 0C10 60 26 110 20 170S8 260 22 320S26 390 18 420L72 420C80 360 62 300 70 240S84 150 68 100S64 30 72 0Z' fill='%236e5f3c'/%3E%3C/svg%3E") repeat-y 0 0 / 90px 420px;
+  /* Parked below the screen and clipped away. When pouring stops, the
+     column drops out of view before the clip snaps shut. */
+  translate: 0 100%;
+  clip-path: inset(0 0 100% 0);
+  transition:
+    translate 0.7s ease-in,
+    clip-path 0s 0.7s;
+}
+
+body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__pour {
+  translate: 0 0;
+  clip-path: inset(0);
+  transition:
+    clip-path 0.9s ease-in,
+    translate 0s;
+  animation:
+    fall 1.4s linear infinite,
+    sway 2.3s ease-in-out infinite alternate;
+}
+
+/* Each layer moves a whole number of its own tiles, so the loop is seamless */
+@keyframes fall {
+  to {
+    background-position:
+      0 1200px,
+      0 1120px,
+      0 840px;
+  }
+}
+
+@keyframes sway {
+  from {
+    transform: translateX(-2px) scaleX(0.92);
+  }
+  to {
+    transform: translateX(3px) scaleX(1.08);
+  }
+}
+
+/* Where the stream hits the surface: churned foam and a spreading ripple */
+.weather__splash {
+  position: absolute;
+  inset-block-end: calc(100% - 12px);
+  inset-inline-end: calc(14% - 35px);
+  width: 160px;
+  height: 30px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.weather__splash::before,
+.weather__splash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.weather__splash::before {
+  inset: 4px 34px;
+  background: #a39570;
+}
+
+.weather__splash::after {
+  border: 3px solid #94845a;
+}
+
+body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__splash {
+  opacity: 1;
+  transition: opacity 0.4s 1s;
+}
+
+body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__splash::before {
+  animation: churn 0.45s ease-in-out infinite alternate;
+}
+
+body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__splash::after {
+  animation: ripple 1.3s ease-out infinite;
+}
+
+@keyframes churn {
+  from {
+    scale: 0.8 0.7;
+  }
+  to {
+    scale: 1.15 1.2;
+  }
+}
+
+@keyframes ripple {
+  from {
+    scale: 0.3 0.5;
+    opacity: 1;
+  }
+  to {
+    scale: 1.5 1.1;
+    opacity: 0;
+  }
+}
+
+/* The pool: rises once the stream has reached the bottom, drains faster */
+.weather__pool {
+  position: absolute;
+  inset: auto 0 0;
+  height: 92vh;
+  /* Floating bits over a murky gradient */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180'%3E%3Cg fill='%233f351f'%3E%3Cellipse cx='30' cy='40' rx='5' ry='2'/%3E%3Cellipse cx='150' cy='22' rx='3' ry='1.5'/%3E%3Cellipse cx='210' cy='96' rx='6' ry='2'/%3E%3Cellipse cx='90' cy='130' rx='4' ry='1.5'/%3E%3Cellipse cx='240' cy='160' rx='2.5' ry='1'/%3E%3C/g%3E%3Cg fill='%23a39570'%3E%3Ccircle cx='70' cy='70' r='2'/%3E%3Ccircle cx='180' cy='140' r='1.5'/%3E%3Ccircle cx='120' cy='58' r='1.2'/%3E%3C/g%3E%3C/svg%3E")
+      0 0 / 260px 180px,
+    linear-gradient(#6e5f3c, #4a3e26);
+  transform: translateY(calc(100% + 2.5rem));
+  transition: transform 1.4s ease-in;
+}
+
+/* Two layers of one irregular wave pattern, drifting in opposite directions
+   at unrelated speeds while each crest line swells and settles, so the
+   surface never repeats in an obvious rhythm. */
+.weather__pool::before,
+.weather__pool::after {
+  content: "";
+  position: absolute;
+  /* Overlap the pool by 2px: at fractional positions a hairline gap would
+     otherwise show between the waves and the water. Same solid colour, so
+     the overlap itself is invisible. */
+  inset: auto auto calc(100% - 2px) 0;
+  transform-origin: bottom;
+  width: calc(100% + 600px);
+  height: 2rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='32' preserveAspectRatio='none'%3E%3Cpath d='M0 16C40 4 70 6 110 14S170 26 220 16S300 2 350 12S420 24 470 15S560 28 600 16V32H0Z' fill='%236e5f3c'/%3E%3C/svg%3E")
+    repeat-x 0 0 / 600px 100%;
+}
+
+/* Same pattern, started half a tile along so the two never line up */
+.weather__pool::after {
+  background-position-x: -300px;
+}
+
+body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__pool {
+  transform: none;
+  transition: transform 24s cubic-bezier(0.3, 0.4, 0.6, 1) 1s;
+  animation:
+    bob 4.3s ease-in-out infinite alternate,
+    debris 26s linear infinite;
+}
+
+body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__pool::before {
+  animation:
+    drift-a 11s linear infinite,
+    swell 3.7s ease-in-out infinite alternate;
+}
+
+body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__pool::after {
+  animation:
+    drift-a 17s linear infinite reverse,
+    swell 5.3s ease-in-out -2s infinite alternate;
+}
+
+@keyframes drift-a {
+  to {
+    transform: translateX(-600px);
+  }
+}
+
+/* Crests grow and flatten; anchored at the bottom so they stay on the water */
+@keyframes swell {
+  from {
+    scale: 1 0.55;
+  }
+  to {
+    scale: 1 1.2;
+  }
+}
+
+/* The whole surface breathes a few pixels (downwards only, so no gap opens) */
+@keyframes bob {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 7px;
+  }
+}
+
+@keyframes debris {
+  to {
+    background-position:
+      -260px 0,
+      0 0;
+  }
+}
+
+@media (max-width: 40rem) {
+  .weather__pour {
+    width: 60px;
+    background-size:
+      60px 300px,
+      60px 560px,
+      60px 420px;
+  }
+
+  .weather__splash {
+    inset-inline-end: calc(14% - 30px);
+    width: 120px;
+  }
+}
+
+/* Storm: the sky dims, rain slants across, and loose things catch the wind */
+.weather__storm {
+  inset: 0;
+  background-color: rgb(11 18 32 / 0.16);
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.weather__storm::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Two layers of the same streaks at different sizes, so the rain looks irregular */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M24 2l-7 21M82 34l-7 21M50 66l-7 21M112 88l-7 21' fill='none' stroke='%230b1220' stroke-opacity='.14' stroke-linecap='round'/%3E%3C/svg%3E") 0 0 / 120px 120px,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M24 2l-7 21M82 34l-7 21M50 66l-7 21M112 88l-7 21' fill='none' stroke='%230b1220' stroke-opacity='.14' stroke-linecap='round'/%3E%3C/svg%3E") 40px 0 / 190px 190px;
+}
+
+body:has([data-hazard="storm"]:is(:hover, :focus-visible)) .weather__storm {
+  opacity: 1;
+}
+
+body:has([data-hazard="storm"]:is(:hover, :focus-visible)) .weather__storm::before {
+  animation: rain 0.5s linear infinite;
+}
+
+/* Lightning: a soft double flicker from the top of the sky, about every 6s */
+.weather__storm::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 0%, #fff, rgb(255 255 255 / 0.55) 70%);
+  opacity: 0;
+}
+
+body:has([data-hazard="storm"]:is(:hover, :focus-visible)) .weather__storm::after {
+  animation: lightning 6s linear 1.5s infinite;
+}
+
+@keyframes lightning {
+  0%,
+  4.5%,
+  100% {
+    opacity: 0;
+  }
+  0.8% {
+    opacity: 0.6;
+  }
+  1.8% {
+    opacity: 0.1;
+  }
+  2.8% {
+    opacity: 0.45;
+  }
+}
+
+body:has([data-hazard="storm"]:is(:hover, :focus-visible)) :is(.card, .links) {
+  animation: gust 1.7s ease-in-out infinite;
+}
+
+body:has([data-hazard="storm"]:is(:hover, :focus-visible)) .links {
+  animation-delay: -0.5s;
+}
+
+body:has([data-hazard="storm"]:is(:hover, :focus-visible)) .intro__picture {
+  animation: flutter 1.3s ease-in-out infinite;
+}
+
+@keyframes rain {
+  to {
+    background-position:
+      -120px 360px,
+      -150px 570px;
+  }
+}
+
+@keyframes gust {
+  0%,
+  100% {
+    translate: 0;
+  }
+  35% {
+    translate: 2px;
+  }
+  65% {
+    translate: -1px;
+  }
+}
+
+@keyframes flutter {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  40% {
+    rotate: 1.5deg;
+  }
+  70% {
+    rotate: -1deg;
+  }
+}
+
+/* Heat: the page reddens and shimmers like air over hot ground */
+.weather__heat {
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgb(255 72 0 / 0.3),
+    rgb(255 40 0 / 0.14) 60%,
+    rgb(255 0 0 / 0.08)
+  );
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+body:has([data-hazard="heat"]:is(:hover, :focus-visible)) .weather__heat {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Keep the colour, drop the movement */
+  .weather__pool,
+  body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__pool,
+  .weather__pour,
+  body:has([data-hazard="flood"]:is(:hover, :focus-visible)) .weather__pour {
+    transition-duration: 0.01s;
+    transition-delay: 0s;
+  }
+
+  .weather__pool,
+  .weather__pool::before,
+  .weather__pool::after,
+  .weather__pour,
+  .weather__splash::before,
+  .weather__splash::after,
+  .weather__storm::before,
+  .weather__storm::after,
+  .card,
+  .links,
+  .intro__picture {
+    animation: none !important;
+  }
+
+  .button {
+    transition: none;
+  }
+
+  .wave {
+    animation: none;
+  }
+}
+
+/* Wave on click; after the reduced-motion rule so a click still waves */
+.wave.is-waving {
+  animation: wave-once 0.9s ease-in-out;
+}
+
+.wave-cursor.is-waving {
+  animation: wave-back 0.9s ease-in-out;
+}
