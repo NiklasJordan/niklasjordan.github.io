@@ -20,9 +20,7 @@
     <link rel="me" href="https://sifa.id/p/niklasjordan.com" />
     <link rel="stylesheet" href="src/style.css" />
     <style>
-      /* Heat shimmer. Kept in the page because it points at the #heat-haze
-         filter defined in this file, which some browsers can't find from an
-         external stylesheet. */
+      /* Heat shimmer. */
       @media (prefers-reduced-motion: no-preference) {
         body:has([data-hazard="heat"]:is(:hover, :focus-visible)) main {
           filter: url(#heat-haze);
@@ -32,7 +30,7 @@
   </head>
 
   <body>
-    <!-- Full-page weather for the hazard words in About me; decorative only -->
+    <!-- Full-page weather for the hazard words in About me -->
     <div class="weather" aria-hidden="true">
       <div class="weather__flood">
         <div class="weather__pour"></div>
